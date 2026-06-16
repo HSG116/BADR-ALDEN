@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Store, Building2 } from 'lucide-react';
 import { useBranch } from '../../context/BranchContext';
 import { branches, BranchId } from '../../lib/branch-data';
 import logoWithName from "@assets/A_logo_with_the_store's_name_below_it_1779558557783_1781574989841.png";
@@ -174,7 +174,7 @@ export function Hero() {
             <p className="text-sm font-bold mb-4 tracking-widest uppercase" style={{ color: '#9a7250' }}>
               اختر فرعك للطلب الفوري
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-row gap-4 justify-center">
               {branchIds.map((id, idx) => (
                 <motion.button
                   key={id}
@@ -182,7 +182,7 @@ export function Hero() {
                   onClick={() => handleBranchSelect(id)}
                   whileHover={{ y: -3, boxShadow: idx === 0 ? '0 10px 28px rgba(236,137,68,0.38)' : '0 10px 28px rgba(92,61,33,0.32)' }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex-1 h-14 rounded-xl text-base font-bold text-white transition-all duration-200"
+                  className="w-36 h-36 sm:w-40 sm:h-40 rounded-2xl text-base font-bold text-white transition-all duration-200 flex flex-col items-center justify-center gap-3"
                   style={{
                     background: branches[id].colorGradient,
                     boxShadow: id === 'tagamoa'
@@ -192,7 +192,8 @@ export function Hero() {
                     cursor: 'pointer',
                   }}
                 >
-                  {branches[id].name}
+                  {id === 'maadi' ? <Store size={28} /> : <Building2 size={28} />}
+                  <span>{branches[id].name}</span>
                 </motion.button>
               ))}
             </div>
