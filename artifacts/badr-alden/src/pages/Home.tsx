@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar } from '../components/sections/Navbar';
 import { Hero } from '../components/sections/Hero';
-import { Products } from '../components/sections/Products';
 import { Features } from '../components/sections/Features';
 import { Branches } from '../components/sections/Branches';
 import { FAQ } from '../components/sections/FAQ';
@@ -12,11 +11,10 @@ import { BranchProvider } from '../context/BranchContext';
 export default function Home() {
   return (
     <BranchProvider>
-      <div className="min-h-screen bg-background overflow-x-hidden font-sans">
+      <div className="min-h-screen overflow-x-hidden font-sans" style={{ background: '#faf6f0' }}>
         <Navbar />
         <main>
           <Hero />
-          <Products />
           <Features />
           <Branches />
           <ContactForm />
