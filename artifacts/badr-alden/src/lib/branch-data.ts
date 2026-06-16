@@ -88,10 +88,9 @@ export const branches: Record<BranchId, BranchInfo> = {
     whatsappPhone: '201117555759',
     whatsappLink:
       'https://api.whatsapp.com/send?phone=201117555759&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D9%85%D8%AD%D9%85%D8%B5%D8%A9%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%AF%D9%8A%D9%86%20%D9%81%D8%B1%D8%B9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%85%D8%B9',
-    mapLink:
-      'https://maps.google.com/?q=%D8%A7%D9%84%D8%AA%D8%B3%D8%B9%D9%8A%D9%86+%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A+%D9%85%D8%AD%D9%88%D8%B1+%D8%A7%D9%84%D8%B3%D8%A7%D8%AF%D8%A7%D8%AA+MUSE+MALL+%D8%A7%D9%84%D9%84%D9%88%D8%AA%D8%B3+%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A%D8%A9',
+    mapLink: 'https://maps.app.goo.gl/BFskondWaSsFvVFq5',
     mapEmbedUrl:
-      'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d863.4609742615116!2d31.52332126961692!3d30.041335998432857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDAyJzI4LjgiTiAzMcKwMzEnMjYuMyJF!5e0!3m2!1sen!2seg!4v1781576223703!5m2!1sen!2seg',
+      'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3453.8323691986657!2d31.525463824166597!3d30.041666674925096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDAyJzMwLjAiTiAzMcKwMzEnMjIuNCJF!5e0!3m2!1sar!2seg!4v1781610317444!5m2!1sar!2seg',
     workingHours: '9:00 \u0635 \u2013 4:00 \u0641\u062c\u0631\u0627\u064b',
     workingDays: '\u064a\u0648\u0645\u064a\u0627\u064b \u2014 \u0644\u0627 \u062a\u0648\u062c\u062f \u0625\u062c\u0627\u0632\u0629',
     deliveryAreas: [
