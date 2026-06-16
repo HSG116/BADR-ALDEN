@@ -184,10 +184,8 @@ export function Hero() {
                   whileTap={{ scale: 0.97 }}
                   className="flex-1 h-14 rounded-xl text-base font-bold text-white transition-all duration-200"
                   style={{
-                    background: idx === 0
-                      ? 'linear-gradient(135deg, #ed7d2d 0%, #ec8944 100%)'
-                      : 'linear-gradient(135deg, #5c3d21 0%, #8b5e34 100%)',
-                    boxShadow: idx === 0
+                    background: branches[id].colorGradient,
+                    boxShadow: id === 'tagamoa'
                       ? '0 4px 18px rgba(236,137,68,0.28)'
                       : '0 4px 18px rgba(92,61,33,0.25)',
                     border: 'none',

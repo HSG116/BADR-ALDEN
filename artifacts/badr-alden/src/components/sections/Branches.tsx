@@ -58,7 +58,7 @@ export function Branches() {
             className="text-lg"
             style={{ color: '#9a7250' }}
           >
-            حدّد فرعك لتظهر لك جميع تفاصيله فوراً
+            حدّد فرعك لتظهر لك جميع التفاصيل فوراً
           </motion.p>
         </div>
 
@@ -76,17 +76,11 @@ export function Branches() {
                 whileTap={{ scale: 0.96 }}
                 className="relative px-8 py-3 rounded-2xl font-bold text-base transition-all duration-300"
                 style={{
-                  background: isActive
-                    ? (id === 'maadi'
-                      ? 'linear-gradient(135deg, #ed7d2d 0%, #ec8944 100%)'
-                      : 'linear-gradient(135deg, #5c3d21 0%, #8b5e34 100%)')
-                    : 'rgba(255,255,255,0.7)',
+                  background: isActive ? b.colorGradient : 'rgba(255,255,255,0.7)',
                   color: isActive ? '#fff' : '#9a7250',
                   border: isActive ? 'none' : '1.5px solid rgba(92,61,33,0.15)',
                   boxShadow: isActive
-                    ? (id === 'maadi'
-                      ? '0 6px 24px rgba(236,137,68,0.32)'
-                      : '0 6px 24px rgba(92,61,33,0.28)')
+                    ? `0 6px 24px ${b.colorLight.replace('0.09', '0.38').replace('0.10', '0.38')}`
                     : '0 2px 8px rgba(92,61,33,0.06)',
                   backdropFilter: 'blur(10px)',
                 }}
@@ -95,13 +89,6 @@ export function Branches() {
                   <MapPin size={16} />
                   {b.name}
                 </span>
-                {isActive && (
-                  <motion.div
-                    layoutId="tab-indicator"
-                    className="absolute inset-0 rounded-2xl"
-                    style={{ border: '2px solid rgba(255,255,255,0.35)' }}
-                  />
-                )}
               </motion.button>
             );
           })}
@@ -122,42 +109,31 @@ export function Branches() {
             <div
               className="rounded-3xl overflow-hidden mb-6"
               style={{
-                background: 'rgba(255,252,247,0.82)',
+                background: 'rgba(255,252,247,0.85)',
                 backdropFilter: 'blur(18px)',
                 WebkitBackdropFilter: 'blur(18px)',
-                border: `1.5px solid ${activeBranch === 'maadi' ? 'rgba(236,137,68,0.25)' : 'rgba(92,61,33,0.2)'}`,
+                border: `1.5px solid ${branch.color}33`,
                 boxShadow: '0 12px 50px rgba(92,61,33,0.10)',
               }}
             >
               {/* Colored top bar */}
-              <div
-                className="h-2"
-                style={{
-                  background: activeBranch === 'maadi'
-                    ? 'linear-gradient(90deg, #ed7d2d, #ec8944, #f5a266)'
-                    : 'linear-gradient(90deg, #3e2712, #5c3d21, #8b5e34)',
-                }}
-              />
+              <div className="h-1.5" style={{ background: branch.colorGradient }} />
 
               <div className="p-8 md:p-10">
-                {/* Branch name & tagline */}
+                {/* Branch name & tagline + live badge */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-                  <div>
-                    <div className="flex items-center gap-3 mb-1">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center"
-                        style={{ background: branch.colorLight }}
-                      >
-                        <MapPin size={24} style={{ color: branch.color }} />
-                      </div>
-                      <div>
-                        <h3 className="text-3xl font-black" style={{ color: '#3e2712' }}>{branch.name}</h3>
-                        <p className="text-sm font-medium" style={{ color: '#9a7250' }}>{branch.tagline}</p>
-                      </div>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: branch.colorLight }}
+                    >
+                      <MapPin size={24} style={{ color: branch.color }} />
+                    </div>
+                    <div>
+                      <h3 className="text-3xl font-black" style={{ color: '#3e2712' }}>{branch.name}</h3>
+                      <p className="text-sm font-medium" style={{ color: '#9a7250' }}>{branch.tagline}</p>
                     </div>
                   </div>
-
-                  {/* Live badge */}
                   <div className="flex items-center gap-2 px-4 py-2 rounded-full self-start md:self-auto"
                     style={{ background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.25)' }}>
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -167,7 +143,7 @@ export function Branches() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                  {/* Address block */}
+                  {/* Address */}
                   <div className="rounded-2xl p-5" style={{ background: branch.colorLight, border: `1px solid ${branch.color}22` }}>
                     <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: branch.color }}>العنوان</p>
                     {branch.addressLines.map((line, i) => (
@@ -183,7 +159,6 @@ export function Branches() {
 
                   {/* Hours + phones */}
                   <div className="space-y-4">
-                    {/* Hours */}
                     <div className="rounded-2xl p-4 flex items-center gap-4"
                       style={{ background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(92,61,33,0.1)' }}>
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -197,7 +172,6 @@ export function Branches() {
                       </div>
                     </div>
 
-                    {/* Phones */}
                     <div className="rounded-2xl p-4" style={{ background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(92,61,33,0.1)' }}>
                       <p className="text-xs font-bold uppercase tracking-wide mb-3" style={{ color: '#9a7250' }}>أرقام الطلب والدليفري</p>
                       <div className="flex flex-wrap gap-2">
@@ -230,17 +204,11 @@ export function Branches() {
                     data-testid={`call-btn-${activeBranch}`}
                     whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(92,61,33,0.3)' }}
                     whileTap={{ scale: 0.97 }}
-                    className="flex items-center justify-center gap-2 h-13 py-3.5 rounded-xl font-bold text-white transition-all duration-200"
-                    style={{
-                      background: 'linear-gradient(135deg, #5c3d21 0%, #8b5e34 100%)',
-                      boxShadow: '0 4px 14px rgba(92,61,33,0.25)',
-                      textDecoration: 'none',
-                    }}
+                    className="flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-white"
+                    style={{ background: 'linear-gradient(135deg, #5c3d21 0%, #8b5e34 100%)', textDecoration: 'none', boxShadow: '0 4px 14px rgba(92,61,33,0.25)' }}
                   >
-                    <Phone size={18} />
-                    اتصل الآن
+                    <Phone size={18} /> اتصل الآن
                   </motion.a>
-
                   <motion.a
                     href={branch.whatsappLink}
                     target="_blank"
@@ -248,55 +216,62 @@ export function Branches() {
                     data-testid={`whatsapp-btn-${activeBranch}`}
                     whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(37,211,102,0.35)' }}
                     whileTap={{ scale: 0.97 }}
-                    className="flex items-center justify-center gap-2 h-13 py-3.5 rounded-xl font-bold text-white transition-all duration-200"
-                    style={{
-                      background: 'linear-gradient(135deg, #1da851 0%, #25D366 100%)',
-                      boxShadow: '0 4px 14px rgba(37,211,102,0.25)',
-                      textDecoration: 'none',
-                    }}
+                    className="flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-white"
+                    style={{ background: 'linear-gradient(135deg, #1da851 0%, #25D366 100%)', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,211,102,0.25)' }}
                   >
-                    <MessageCircle size={18} />
-                    واتساب الفرع
+                    <MessageCircle size={18} /> واتساب الفرع
                   </motion.a>
-
                   <motion.a
                     href={branch.mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid={`map-btn-${activeBranch}`}
-                    whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(236,137,68,0.35)' }}
+                    whileHover={{ y: -2, boxShadow: `0 8px 24px ${branch.color}55` }}
                     whileTap={{ scale: 0.97 }}
-                    className="flex items-center justify-center gap-2 h-13 py-3.5 rounded-xl font-bold text-white transition-all duration-200"
-                    style={{
-                      background: 'linear-gradient(135deg, #ed7d2d 0%, #ec8944 100%)',
-                      boxShadow: '0 4px 14px rgba(236,137,68,0.25)',
-                      textDecoration: 'none',
-                    }}
+                    className="flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-white"
+                    style={{ background: branch.colorGradient, textDecoration: 'none', boxShadow: `0 4px 14px ${branch.color}44` }}
                   >
-                    <Navigation size={18} />
-                    الموقع على الخريطة
+                    <Navigation size={18} /> الموقع على الخريطة
                   </motion.a>
                 </div>
               </div>
             </div>
 
-            {/* Bottom two panels: features + delivery areas */}
+            {/* Google Maps embed */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="rounded-3xl overflow-hidden mb-6"
+              style={{
+                border: `1.5px solid ${branch.color}22`,
+                boxShadow: '0 8px 32px rgba(92,61,33,0.08)',
+              }}
+            >
+              <div className="px-5 py-3 flex items-center gap-3"
+                style={{ background: branch.colorGradient }}>
+                <Navigation size={16} className="text-white" />
+                <span className="text-white font-bold text-sm">الموقع على خريطة جوجل — {branch.name}</span>
+              </div>
+              <iframe
+                src={branch.mapEmbedUrl}
+                width="100%"
+                height="340"
+                style={{ border: 0, display: 'block' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={`خريطة ${branch.name}`}
+              />
+            </motion.div>
+
+            {/* Bottom panels: features + delivery areas */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-              {/* Features grid */}
-              <div
-                className="rounded-3xl p-6"
-                style={{
-                  background: 'rgba(255,252,247,0.82)',
-                  backdropFilter: 'blur(14px)',
-                  WebkitBackdropFilter: 'blur(14px)',
-                  border: '1px solid rgba(92,61,33,0.1)',
-                  boxShadow: '0 4px 24px rgba(92,61,33,0.07)',
-                }}
-              >
-                <p className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: branch.color }}>
-                  مميزات الفرع
-                </p>
+              {/* Features */}
+              <div className="rounded-3xl p-6"
+                style={{ background: 'rgba(255,252,247,0.85)', backdropFilter: 'blur(14px)', border: '1px solid rgba(92,61,33,0.1)', boxShadow: '0 4px 24px rgba(92,61,33,0.07)' }}>
+                <p className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: branch.color }}>مميزات الفرع</p>
                 <div className="grid grid-cols-2 gap-3">
                   {branch.features.map((feat, i) => (
                     <motion.div
@@ -316,23 +291,13 @@ export function Branches() {
               </div>
 
               {/* Delivery areas */}
-              <div
-                className="rounded-3xl p-6"
-                style={{
-                  background: 'rgba(255,252,247,0.82)',
-                  backdropFilter: 'blur(14px)',
-                  WebkitBackdropFilter: 'blur(14px)',
-                  border: '1px solid rgba(92,61,33,0.1)',
-                  boxShadow: '0 4px 24px rgba(92,61,33,0.07)',
-                }}
-              >
+              <div className="rounded-3xl p-6"
+                style={{ background: 'rgba(255,252,247,0.85)', backdropFilter: 'blur(14px)', border: '1px solid rgba(92,61,33,0.1)', boxShadow: '0 4px 24px rgba(92,61,33,0.07)' }}>
                 <div className="flex items-center gap-2 mb-5">
                   <Truck size={18} style={{ color: branch.color }} />
-                  <p className="text-sm font-bold uppercase tracking-widest" style={{ color: branch.color }}>
-                    مناطق التوصيل
-                  </p>
+                  <p className="text-sm font-bold uppercase tracking-widest" style={{ color: branch.color }}>مناطق التوصيل</p>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {branch.deliveryAreas.map((area, i) => (
                     <motion.span
                       key={area}
@@ -340,38 +305,26 @@ export function Branches() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: i * 0.06 }}
                       className="px-3 py-1.5 rounded-full text-sm font-semibold"
-                      style={{
-                        background: branch.colorLight,
-                        color: branch.color,
-                        border: `1px solid ${branch.color}30`,
-                      }}
+                      style={{ background: branch.colorLight, color: branch.color, border: `1px solid ${branch.color}30` }}
                     >
                       📍 {area}
                     </motion.span>
                   ))}
                 </div>
-
-                {/* Delivery note */}
-                <div className="mt-5 p-4 rounded-2xl" style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)' }}>
+                <div className="p-4 rounded-2xl mb-4" style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)' }}>
                   <p className="text-sm font-semibold text-green-700 flex items-start gap-2">
                     <span className="mt-0.5">✅</span>
-                    <span>نوصل لجميع المناطق المحيطة بالفرع — تواصل معنا لأي منطقة غير مذكورة</span>
+                    <span>نوصل لجميع المناطق المحيطة — تواصل معنا لأي منطقة غير مذكورة</span>
                   </p>
                 </div>
-
-                {/* WhatsApp quick order */}
                 <motion.a
                   href={branch.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="mt-4 flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-white text-sm transition-all"
-                  style={{
-                    background: 'linear-gradient(135deg, #1da851 0%, #25D366 100%)',
-                    textDecoration: 'none',
-                    boxShadow: '0 4px 16px rgba(37,211,102,0.25)',
-                  }}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-white text-sm"
+                  style={{ background: 'linear-gradient(135deg, #1da851 0%, #25D366 100%)', textDecoration: 'none', boxShadow: '0 4px 16px rgba(37,211,102,0.25)' }}
                 >
                   <MessageCircle size={16} />
                   اطلب الآن عبر واتساب {branch.nameShort}
