@@ -57,6 +57,18 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    minify: "esbuild",
+    sourcemap: false,
+    cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          motion: ["framer-motion"],
+          ui: ["@radix-ui/react-accordion", "@radix-ui/react-dialog"],
+        },
+      },
+    },
   },
   server: {
     port,
@@ -71,5 +83,21 @@ export default defineConfig({
     port,
     host: "0.0.0.0",
     allowedHosts: true,
+    headers: {
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-XSS-Protection": "1; mode=block",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Content-Security-Policy": [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline'",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+        "font-src 'self' https://fonts.gstatic.com",
+        "img-src 'self' data: https:",
+        "frame-src https://www.google.com",
+        "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
+      ].join("; "),
+    },
   },
 });

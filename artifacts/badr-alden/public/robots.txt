@@ -1,2 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /src/
+Crawl-delay: 1
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+Sitemap: https://badralden.replit.app/sitemap.xml

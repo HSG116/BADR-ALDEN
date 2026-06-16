@@ -1,21 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>محمصة بدر الدين</title>
-    <meta name="description" content="محمصة بدر الدين — built on Replit. Update this description to reflect the app." />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="محمصة بدر الدين" />
-    <meta property="og:description" content="محمصة بدر الدين — built on Replit. Update this description to reflect the app." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+
+    <!-- ══ Primary SEO ══ -->
+    <title>محمصة بدر الدين | مكسرات وقهوة طازجة — المعادي والتجمع الخامس</title>
+    <meta name="description" content="محمصة بدر الدين — أجود المكسرات المحمصة والقهوة الطازجة في القاهرة. فرعان: زهراء المعادي والتجمع الخامس. نعمل يومياً من 9 صباحاً حتى 4 فجراً بلا إجازة. اطلب الآن عبر واتساب مع توصيل سريع." />
+    <meta name="keywords" content="محمصة بدر الدين, مكسرات محمصة, قهوة طازجة, كاجو, فستق, لوز, بندق, ماكاديميا, تسالي, فواكه مجففة, محمصة المعادي, محمصة التجمع, توصيل مكسرات القاهرة, مكسرات القاهرة, قهوة مطحونة, badr alden roastery" />
+    <meta name="author" content="محمصة بدر الدين" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#5c3d21" />
+    <meta name="color-scheme" content="light" />
+    <meta name="language" content="Arabic" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="category" content="food, nuts, coffee, roastery" />
+
+    <!-- Geo tags (Egypt / Cairo) -->
+    <meta name="geo.region" content="EG-C" />
+    <meta name="geo.placename" content="Cairo, Egypt" />
+    <meta name="geo.position" content="29.968649;31.311851" />
+    <meta name="ICBM" content="29.968649, 31.311851" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://badralden.replit.app/" />
+
+    <!-- ══ Open Graph ══ -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_EG" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="محمصة بدر الدين" />
+    <meta property="og:url" content="https://badralden.replit.app/" />
+    <meta property="og:title" content="محمصة بدر الدين | مكسرات وقهوة طازجة — المعادي والتجمع الخامس" />
+    <meta property="og:description" content="أجود المكسرات المحمصة والقهوة الطازجة في القاهرة. فرعان في المعادي والتجمع الخامس. نعمل يومياً 9 ص — 4 فجراً بلا إجازة. اطلب الآن مع توصيل سريع!" />
+    <meta property="og:image" content="https://badralden.replit.app/opengraph.jpg" />
+    <meta property="og:image:secure_url" content="https://badralden.replit.app/opengraph.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="محمصة بدر الدين — مكسرات وقهوة طازجة في القاهرة" />
+
+    <!-- ══ Twitter / X Card ══ -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="محمصة بدر الدين" />
-    <meta name="twitter:description" content="محمصة بدر الدين — built on Replit. Update this description to reflect the app." />
+    <meta name="twitter:title" content="محمصة بدر الدين | مكسرات وقهوة طازجة" />
+    <meta name="twitter:description" content="أجود المكسرات المحمصة والقهوة الطازجة في القاهرة. فرعان في المعادي والتجمع الخامس. اطلب الآن!" />
+    <meta name="twitter:image" content="https://badralden.replit.app/opengraph.jpg" />
+    <meta name="twitter:image:alt" content="محمصة بدر الدين" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#5c3d21" />
+
+    <!-- ══ Fonts: Tajawal (Arabic) — preconnect first ══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- ══ JSON-LD Structured Data ══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://badralden.replit.app/#organization",
+          "name": "محمصة بدر الدين",
+          "alternateName": "Badr Alden Roastery",
+          "url": "https://badralden.replit.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://badralden.replit.app/favicon.svg",
+            "width": 512,
+            "height": 512
+          },
+          "image": "https://badralden.replit.app/opengraph.jpg",
+          "description": "أجود المكسرات المحمصة والقهوة الطازجة في القاهرة — فرعان في المعادي والتجمع الخامس",
+          "foundingLocation": {
+            "@type": "Place",
+            "name": "القاهرة، مصر"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "القاهرة"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+20-1110085927",
+              "contactType": "customer service",
+              "areaServed": "EG",
+              "availableLanguage": "Arabic",
+              "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                "opens": "09:00",
+                "closes": "04:00"
+              }
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+20-1117555759",
+              "contactType": "customer service",
+              "areaServed": "EG",
+              "availableLanguage": "Arabic"
+            }
+          ]
+        },
+        {
+          "@type": "FoodEstablishment",
+          "@id": "https://badralden.replit.app/#maadi",
+          "name": "محمصة بدر الدين — فرع المعادي",
+          "alternateName": "Badr Alden Roastery Maadi Branch",
+          "image": "https://badralden.replit.app/opengraph.jpg",
+          "url": "https://badralden.replit.app/",
+          "telephone": "+20-1020727773",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "زهراء المعادي، الشطر الثالث عشر، أمام HUB 50 MALL",
+            "addressLocality": "المعادي",
+            "addressRegion": "القاهرة",
+            "addressCountry": "EG"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 29.96864907496184,
+            "longitude": 31.311851175830746
+          },
+          "hasMap": "https://maps.google.com/?q=زهراء+المعادي+الشطر+الثالث+عشر+HUB+50+MALL",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+              "opens": "09:00",
+              "closes": "04:00"
+            }
+          ],
+          "servesCuisine": ["مكسرات محمصة", "قهوة طازجة", "تسالي", "فواكه مجففة"],
+          "priceRange": "$$",
+          "currenciesAccepted": "EGP",
+          "paymentAccepted": "Cash, Card",
+          "deliveryAvailable": true,
+          "takeaway": true
+        },
+        {
+          "@type": "FoodEstablishment",
+          "@id": "https://badralden.replit.app/#tagamoa",
+          "name": "محمصة بدر الدين — فرع التجمع",
+          "alternateName": "Badr Alden Roastery Tagamoa Branch",
+          "image": "https://badralden.replit.app/opengraph.jpg",
+          "url": "https://badralden.replit.app/",
+          "telephone": "+20-1117555759",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "التسعين الشمالي، تقاطع محور السادات، أسفل كوبري النائب العام، MUSE MALL موازي اللوتس الشمالية",
+            "addressLocality": "التجمع الخامس",
+            "addressRegion": "القاهرة",
+            "addressCountry": "EG"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.041335998432857,
+            "longitude": 31.52332126961692
+          },
+          "hasMap": "https://maps.google.com/?q=التسعين+الشمالي+MUSE+MALL+اللوتس+الشمالية",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+              "opens": "09:00",
+              "closes": "04:00"
+            }
+          ],
+          "servesCuisine": ["مكسرات محمصة", "قهوة طازجة", "تسالي", "فواكه مجففة"],
+          "priceRange": "$$",
+          "currenciesAccepted": "EGP",
+          "paymentAccepted": "Cash, Card",
+          "deliveryAvailable": true,
+          "takeaway": true
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://badralden.replit.app/#website",
+          "url": "https://badralden.replit.app/",
+          "name": "محمصة بدر الدين",
+          "description": "أجود المكسرات المحمصة والقهوة الطازجة في القاهرة",
+          "inLanguage": "ar-EG",
+          "publisher": {
+            "@id": "https://badralden.replit.app/#organization"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
