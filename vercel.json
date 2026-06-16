@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "framework": "vite",
+  "buildCommand": "pnpm --filter @workspace/badr-alden run build",
+  "outputDirectory": "artifacts/badr-alden/dist/public",
+  "installCommand": "pnpm install",
+  "ignoreCommand": "npx turbo-ignore"
+}
