@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "محمصة بدر الدين"
+version = "1.0.0"
+id = "artifacts/badr-alden"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23385
+
+[services.development]
+run = "pnpm --filter @workspace/badr-alden run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/badr-alden", "run", "build" ]
+publicDir = "artifacts/badr-alden/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23385"
+BASE_PATH = "/"
